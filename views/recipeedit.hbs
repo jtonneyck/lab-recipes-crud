@@ -1,39 +1,37 @@
 <a href='/recipes'>Cancel</a>
 {{#if recipe}}
 <h2>Edit the fields and when satisfied press the Update button!</h2>
-<form action='/recipe/update' method='post' id='form'>
+<form action='/recipe/update?_id={{recipe._id}}' method='post' id='form'>
     <table>
         <tbody>
-            <!-- show id but do not allow changing it -->
-            <tr><td align='right'>Id</td><td>:</td><td name='_id'>{{recipe._id}}</td></tr>
-            <tr><td align='right'>Title</td><td>:</td><td><input type='text' id='title' name='title' maxlength='50'></td></tr>
-            <tr><td align='right'>Ingredients (comma-delimited)</td><td>:</td><td><input type='text' id='ingredients' name='ingredients' maxlength='50'></td></tr>
-            <tr><td align='right'>Image</td><td>:</td><td><input type='text' id='image' name='image' maxlength='50'><td></tr>
+            <tr><td align='right'>Title</td><td>:</td><td><input type='text' id='title' name='title' maxlength='50' value='{{recipe.title}}'></td></tr>
+            <tr><td align='right'>Ingredients (comma-delimited)</td><td>:</td><td><input type='text' id='ingredients' name='ingredients' maxlength='50' value='{{recipe.ingredients}}'></td></tr>
+            <tr><td align='right'>Image</td><td>:</td><td><input type='text' id='image' name='image' maxlength='50' value='{{recipe.image}}'><td></tr>
             <tr><td align='right'>Level</td><td>:</td>
                 <td>
                     <select id='level' name='level'>
-                    <option value='Easy Peasy' selected>Easy Peasy</option>
-                    <option value='Amateur Chef'>Amateur Chef</option>
-                    <option value='Amateur Chef'>UltraPro Chef</option>
+                    <option value='Easy Peasy'{{#if (eq recipe.level 'Easy Peasy')}} selected{{/if}}>Easy Peasy</option>
+                    <option value='Amateur Chef'{{#if (eq recipe.level 'Amateur Chef')}} selected{{/if}}>Amateur Chef</option>
+                    <option value='UltraPro Chef'{{#if (eq recipe.level 'UltraPro Chef')}} selected{{/if}}>UltraPro Chef</option>
                     </select>
                 </td>
             </tr>
-            <tr><td align='right'>Cuisine</td><td>:</td><td><input type='text' id='cuisine' name='cuisine' maxlength='50'><td></tr>
+            <tr><td align='right'>Cuisine</td><td>:</td><td><input type='text' id='cuisine' name='cuisine' maxlength='50' value='{{recipe.cuisine}}'><td></tr>
             <tr>
                 <td align='right'>dishType</td><td>:</td>
                 <td>
                     <select id='dishtype' name='dishType'>
-                        <option value='Breakfast'>Breakfast</option>
-                        <option value='Breakfast'>Dish</option>
-                        <option value='Breakfast'>Snack</option>
-                        <option value='Breakfast'>Drink</option>
-                        <option value='Breakfast'>Dessert</option>
-                        <option value='Breakfast'>Other</option>
+                        <option value='Breakfast'{{#if (eq recipe.dishType '==' 'Breakfast')}} selected{{/if}}>Breakfast</option>
+                        <option value='Dish'{{#if (eq recipe.dishType 'Dish')}} selected{{/if}}>Dish</option>
+                        <option value='Snack'{{#if (eq recipe.dishType 'Snack')}} selected{{/if}}>Snack</option>
+                        <option value='Drink'{{#if (eq recipe.dishType 'Drink')}} selected{{/if}}>Drink</option>
+                        <option value='Dessert'{{#if (eq recipe.dishType 'Dessert')}} selected{{/if}}>Dessert</option>
+                        <option value='Other'{{#if (eq recipe.dishType 'Other')}} selected{{/if}}>Other</option>
                     </select>
                 </td>
             </tr>
-            <tr><td align='right'>Duration</td><td>:</td><td><input type='text' id='duration' name='duration' maxlength='50'><td></tr>
-            <tr><td align='right'>Creator</td><td>:</td><td><input type='text' id='creator' name='creator' maxlength='50'><td></tr>
+            <tr><td align='right'>Duration</td><td>:</td><td><input type='text' id='duration' name='duration' maxlength='50' value='{{recipe.duration}}'><td></tr>
+            <tr><td align='right'>Creator</td><td>:</td><td><input type='text' id='creator' name='creator' maxlength='50' value='{{recipe.creator}}'><td></tr>
         </tbody>
     </table>
 </form>

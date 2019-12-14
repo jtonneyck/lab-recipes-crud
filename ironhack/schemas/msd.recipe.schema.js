@@ -18,6 +18,6 @@ const recipeSchema=mongoose.Schema({
                                     image:{type:mongoose.Schema.Types.String,default:'https://images.media-allrecipes.com/images/75131.jpg'},
                                     duration:{type:mongoose.Schema.Types.Number,min:0.0},
                                     creator:mongoose.Schema.Types.String,
-                                    created:mongoose.Schema.Types.Date,
+                                    created:{type:mongoose.Schema.Types.Date,default:Date.now}
                                    });
 module.exports=recipeSchema;

@@ -76,9 +76,11 @@ module.exports=(conn)=>{ // requires plugging in the connection to use for creat
 			});
 		},
 		update:function(req,res,next){
-			console.log("Update called!");
-			req.body.ingredients=req.body.ingredients.split(",");
-			Recipe.findOneAndUpdate(req.params.recipeId,{$set:req.body})
+			console.log("Update on recipe with id '"+req.params.recipeId+"'.");
+			console.log("Update called on ",req.body);
+			////////req.body.ingredients=req.body.ingredients.split(",");
+			// IMPORTANT: Notation {_id:req.params.recipeId} works fine BUT req.params.recipeId deleted ANOTHER recipe!!
+			Recipe.findOneAndUpdate({_id:req.params.recipeId},{$set:req.body},{new:true})
 			.then(recipe => {
 				if(!recipe){
 					return res.status(400).send({
@@ -88,7 +90,7 @@ module.exports=(conn)=>{ // requires plugging in the connection to use for creat
 				res.send({'updated':recipe});
 			}).catch(err => {
 				if(err.kind == 'ObjectId'){
-					return res.send(404).send({
+					return res.sendStatus(404).send({
 						error: 'recipe with id ' + req.params.recipeId + ' not found.'
 					});
 				}
@@ -100,7 +102,8 @@ module.exports=(conn)=>{ // requires plugging in the connection to use for creat
 		},
 		delete:function(req,res,next){
 			console.log("Delete called on a recipe with id '"+req.params.recipeId+"'.");
-			Recipe.findOneAndDelete(req.params.recipeId)
+			// IMPORTANT: Notation {_id:req.params.recipeId} works fine BUT req.params.recipeId deleted ANOTHER recipe!!
+			Recipe.findOneAndDelete({_id:req.params.recipeId})
 			.then(recipe => {
 				if(!recipe){
 					return res.status(400).send({
@@ -108,7 +111,7 @@ module.exports=(conn)=>{ // requires plugging in the connection to use for creat
 					});
 				}
 				////////next({'id':recipe._id,'message':'recipe deleted successfully.'},res,req,next);
-				res.send({message:'recipe deleted successfully.'});
+				res.send({message:"Recipe with id '"+recipe._id+"' deleted successfully."});
 			}).catch(err => {
 				if(err.kind == 'ObjectId'||err.name=='NotFound'){
 					return res.send(404).send({

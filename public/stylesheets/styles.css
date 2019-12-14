@@ -9,6 +9,10 @@
     justify-content: center; /* center horizontally */
 }
 
+h1{
+    color:blue;
+}
+
 .recipe-title{
     color:red;
 }

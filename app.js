@@ -1,5 +1,5 @@
-const BACKEND_SERVER_PORT=2999;
-const FRONTEND_SERVER_PORT=3000;
+const BACKEND_SERVER_PORT=2996;
+const FRONTEND_SERVER_PORT=3003;
 
 const express = require('express');
 
@@ -31,15 +31,72 @@ backendserver.listen(BACKEND_SERVER_PORT,()=>{console.log("Backend server is lis
 const app = express(); // a new server for running the front-end
 
 const hbs=require('hbs');
+/*
+hbs.registerHelper('ifCond', function (v1, operator, v2, options) {
+    switch (operator) {
+        case '==':
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===':
+            return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '!=':
+            return (v1 != v2) ? options.fn(this) : options.inverse(this);
+        case '!==':
+            return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+        case '<':
+            return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':
+            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':
+            return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':
+            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '&&':
+            return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        case '||':
+            return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        default:
+            return options.inverse(this);
+    }
+});
+*/
+hbs.registerHelper({
+    eq: function (v1, v2) {
+        return v1 === v2;
+    },
+    ne: function (v1, v2) {
+        return v1 !== v2;
+    },
+    lt: function (v1, v2) {
+        return v1 < v2;
+    },
+    gt: function (v1, v2) {
+        return v1 > v2;
+    },
+    lte: function (v1, v2) {
+        return v1 <= v2;
+    },
+    gte: function (v1, v2) {
+        return v1 >= v2;
+    },
+    and: function () {
+        return Array.prototype.slice.call(arguments).every(Boolean);
+    },
+    or: function () {
+        return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+    }
+});
+
+const path=require('path');
 
 app.set('view engine','hbs');
 
-app.set('views',__dirname+'/views');
+app.set('views',path.join(__dirname,'views'));
 
-hbs.registerPartials(__dirname+"/views/partials");
+hbs.registerPartials(path.join(__dirname,"views/partials"));
 
 // tell express where the static content is located
-app.set(express.static,__dirname+"/public");
+// NOTE I had app.set(express.static,path.join(__dirname,"public")) here but that didn't work, this does
+app.use(express.static(path.join(__dirname,"public")));
 
 // with thanks to Piepongwong (see https://github.com/github/fetch/issues/323)
 
@@ -62,6 +119,8 @@ const response = await fetch('http://example.com/movies.json');
 const myJson = await response.json();
 */
 
+var message=""; // leave a message
+
 const fetch=require('node-fetch'); // so we can use fetch()
 
 // 1. Showing all recipes
@@ -75,11 +134,14 @@ app.get('/recipes',
 					.then(
 						(recipes)=>{
 							console.log("Received recipes: ",recipes);
-							res.render('recipes',{recipes:recipes});
+							// show sorted on by title
+							data={recipes:recipes.sort(function(a,b){return(a.title>b.title?1:-1);})};
+							if(message)data.message=message; // have we got a message to show????
+							res.render('recipes',data);
 						})
 					.catch(
 						(err)=>{
-							res.status(404).send({"error":err});
+							res.status(404).send("ERROR: '"+err.toString()+"' trying to show all recipes.");
 						}
 					);
 			}
@@ -115,7 +177,7 @@ app.get('/recipes/:recipeId',
 						})
 					.then(
 						(recipe)=>{
-							console.log("Received recipe: ",recipe);
+							//////console.log("Received recipe: ",recipe);
 							res.render('recipedetails',{recipe:recipe});
 						})
 					.catch(
@@ -162,29 +224,34 @@ app.post('/recipe/new',
 // Update a recipe
 app.post('/recipe/update',
 			(req,res)=>{
-				console.log("Recipe update: ",req.body);
-				recipeId=req.body._id;
-				delete req.body._id; // don't pass along to the backend server
-				fetch('http://localhost:'+BACKEND_SERVER_PORT+"/recipes/"+recipeId,{method:'put',body:req.body})
+				let recipeId=req.query._id;
+				console.log("Recipe '"+recipeId+"' update: ",req.body);
+				fetch('http://localhost:'+BACKEND_SERVER_PORT+"/recipes/"+recipeId,
+					{method:'put',
+					headers:{'Accept': 'application/json','Content-Type': 'application/json'},
+					body:JSON.stringify(req.body)
+					})
 				.then(
 					(response)=>{
 						return response.json();
 					})
 				.then(
 					(recipe)=>{
-						console.log("Recipe after update: ",recipe);
+						/////////console.log("Recipe after update: ",recipe);
 						res.redirect('/recipedetails',{recipe:recipe}); // show the recipes again
 					})
 				.catch(
 					(err)=>{
+						message=err.message;
 						res.status(404).send({"error":err});
 					})
 			}
 		);		
 
 // Delete a recipe
-app.get('/recipes/:recipeId/delete',
+app.get('/recipe/:recipeId/delete',
 			(req,res)=>{
+				console.log("Deleting the recipe with id '"+req.params.recipeId+"'.");
 				fetch('http://localhost:'+BACKEND_SERVER_PORT+"/recipes/"+req.params.recipeId,{method:'delete'})
 				.then(
 					(response)=>{
@@ -192,7 +259,7 @@ app.get('/recipes/:recipeId/delete',
 					})
 				.then(
 					(data)=>{
-						console.log("Received data: ",data);
+						message=data.message;
 						res.redirect('/recipes'); // show the recipes again
 					})
 				.catch(
