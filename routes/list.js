@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const Recipe = require("../models/recipe")
 
-app.get("/", (req, res) => {
+app.get("/recipes", (req, res) => {
     Recipe.find({})
         .then((response) => {
             res.render("recipes/list.hbs", { recipes: response })
