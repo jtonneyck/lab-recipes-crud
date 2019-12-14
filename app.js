@@ -4,11 +4,11 @@ const bodyParser = require('body-parser')
 const mongoose = require("mongoose")
 const app = express();
 
-// let options = {
-//     useNewUrlParser: true,
-//     useUnifiedTypology: true
-// }
-mongoose.connect("mongodb://localhost:27017/recipeApp", (err, connectionInfo) => {
+let options = {
+    useNewUrlParser: true,
+    useUnifiedTypology: true
+}
+mongoose.connect("mongodb://localhost:27017/recipeApp", options, (err, connectionInfo) => {
     if (err) console.log(err);
     else console.log("connected to database")
 })
@@ -19,13 +19,14 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 app.use(express.static(__dirname + "public"));
 // set up handlebars
-
-app.use("/", require("./routes/list"));
 app.get('/', (req, res, next) => {
     res.render('index');
 });
+app.use("/", require("./routes/list"));
+
+app.use("/", require("./routes/singleRecipe"));
 
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log("Webserver is listening");
 })
