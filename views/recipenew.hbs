@@ -1,0 +1,55 @@
+<a href='/recipes'>Cancel</a>
+<h2>Fill in the fields and then press the Submit button!</h2>
+<form action='/recipe/new' method='post' id='form'>
+    <table>
+        <tbody>
+            <tr><td align='right'>Title</td><td>:</td><td><input type='text' id='title' name='title' maxlength='50'></td></tr>
+            <tr><td align='right'>Ingredients (comma-delimited)</td><td>:</td><td><input type='text' id='ingredients' name='ingredients' maxlength='50'></td></tr>
+            <tr><td align='right'>Image</td><td>:</td><td><input type='text' id='image' name='image' maxlength='50'><td></tr>
+            <tr><td align='right'>Level</td><td>:</td>
+                <td>
+                    <select id='level' name='level'>
+                    <option value='Easy Peasy' selected>Easy Peasy</option>
+                    <option value='Amateur Chef'>Amateur Chef</option>
+                    <option value='Amateur Chef'>UltraPro Chef</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td align='right'>Cuisine</td><td>:</td><td><input type='text' id='cuisine' name='cuisine' maxlength='50'><td></tr>
+            <tr>
+                <td align='right'>dishType</td><td>:</td>
+                <td>
+                    <select id='dishtype' name='dishType'>
+                        <option value='Breakfast'>Breakfast</option>
+                        <option value='Breakfast'>Dish</option>
+                        <option value='Breakfast'>Snack</option>
+                        <option value='Breakfast'>Drink</option>
+                        <option value='Breakfast'>Dessert</option>
+                        <option value='Breakfast'>Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td align='right'>Duration</td><td>:</td><td><input type='text' id='duration' name='duration' maxlength='50'><td></tr>
+            <tr><td align='right'>Creator</td><td>:</td><td><input type='text' id='creator' name='creator' maxlength='50'><td></tr>
+        </tbody>
+    </table>
+</form>
+<input type="button" value='Submit' onclick='javascript:submit();'>
+<script>
+    function submit(){
+        console.log("Checking input!");
+        let title=document.getElementById("title").value.trim();
+        let ingredients=document.getElementById("ingredients").value.trim();
+        let cuisine=document.getElementById("cuisine").value.trim();
+        let duration=document.getElementById("duration").value.trim();
+        let creator=document.getElementById("creator").value.trim();
+        if(title.length>0&&ingredients.length>0&&cuisine.length>0&&duration.length>0&&creator.length>0){
+            // let's parse the ingredients into an array!!!
+            console.log("Input ok!");
+            ////////document.getElementById("ingredients").value="['"+ingredients.split('').join("','")+"']";
+            document.getElementById("form").submit();
+        }else
+            alert("Title, ingredients, cuisine, duration and/or creator missing!");
+    }
+</script>
+

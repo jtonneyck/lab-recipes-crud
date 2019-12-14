@@ -1,0 +1,32 @@
+<h1>Recipe {{recipe.title}} (id: {{recipe._id}})</h1>
+<a href='/recipes'>Select another recipe</a>
+<table>
+    <tbody>
+        <tr><td align='right'>Cuisine</td><td>:</td><td>{{recipe.cuisine}}</td></tr>
+        <tr><td align='right'>Ingredients</td align='right'><td>:</td><td>{{recipe.ingredients}}</td></tr>
+        <tr><td align='right'>Level</td align='right'><td>:</td><td>{{recipe.level}}</td></tr>
+        <tr><td align='right'>Image</td align='right'><td>:</td><td>{{recipe.image}}</td>{{recipe.image}}</tr>
+        <tr><td align='right'>Dish type</td align='right'><td>:</td><td>{{recipe.dishtype}}</td></tr>
+        <tr><td align='right'>Cuisine</td align='right'><td>:</td><td>{{recipe.cuisine}}</td></tr>
+        <tr><td align='right'>Duration</td align='right'><td>:<td></td>{{recipe.duration}}<td></tr>
+        <tr><td align='right'>Creator</td align='right'><td>:</td><td>{{recipe.creator}}</td>{{recipe.creator}}</tr>
+        <tr><td align='right'>Created</td align='right'><td>:</td><td>{{recipe.created}}</td>{{recipe.created}}</tr>
+    </tbody>
+</table>
+<!-- to delete the recipe press the following button -->
+<form action='/recipes/{{recipe._id}}/delete' method='get'><input type='submit' value='Delete this recipe'></form>
+<!--
+<input type='button' onclick='javascript:fetch("/recipes/{{recipe._id}}", {method: "DELETE"});' value='Delete this recipe now'>
+<script>
+    function deleteRecipe(recipeId){
+        var xhr1 = new XMLHttpRequest();
+        xhr1.open('DELETE', "/recipes/"+recipeId, true);
+        xhr1.onreadystatechange = function() {
+            if (this.status == 200 && this.readyState == 4) {
+                console.log("The delete should now have be done!");
+                 dostuff = this.responseText;
+        };//end onreadystate
+        xhr1.send();
+    }
+</script>
+-->

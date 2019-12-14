@@ -1,0 +1,8 @@
+<h2>All my favorite dishes are here</h2>
+<p>Feel free to click any dish for further details.</p>
+<a href='/recipe/new'>Create a new recipe!</a>
+<div class='recipe-list'>
+    {{#each recipes}}
+        {{>recipe this}}
+    {{/each}}
+</div>

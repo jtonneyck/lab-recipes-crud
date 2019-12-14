@@ -1,0 +1,41 @@
+// some obsolete code that I used previously in app.js
+
+/*
+// make all routes available for CRUD on recipes
+// pass in the router that ironhack/router.js provides
+// and my handlers to render things
+require(__dirname+'/ironhack/routes/msd.recipe.routes.js')(app,mongoose,{
+	findAll:(recipes,req,res,next)=>{
+		res.render('recipes',{recipes:recipes});
+	},
+	findOne:(recipe,req,res,next)=>{
+		// show the recipe details (and allowing to delete the recipe there)
+		res.render('recipedetails',{recipe:recipe});
+	},
+	create:(newrecipe,req,res,next)=>{
+		console.log("Created recipe: ",newrecipe);
+		// given that the result is the new recipe, we could simply show the recipe!!!
+		res.redirect('/recipes'); // works like a charm
+	},
+	update:(recipe,req,res,next)=>{
+		console.log("Update");
+	},
+	delete:(result,req,res,next)=>{
+		console.log("Done deleting!");
+		// after a successful delete, show all recipes again
+		res.redirect('/recipes');
+	}
+});
+*/
+/*
+let Recipe=require(__dirname+"/ironhack/models/msd.recipe.model.js")(mongoose);
+Recipe.find({})
+.then((recipes)=>{
+	console.log("Recipes: ",recipes);
+})
+.catch((err)=>{
+	console.log("Problems getting the recipes",err);
+});
+*/
+// test autoinc
+/////require('./app/routes/ovmsd.officevitae.testautoinc.routes.js')(app);

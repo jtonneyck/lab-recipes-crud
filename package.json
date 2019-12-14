@@ -1,0 +1,29 @@
+{
+  "name": "lab-recipes-crud",
+  "version": "1.0.0",
+  "description": "Database [x], webserver[x], dynamic views [x], front-end [x] connecting all of them? []",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdehoogh/lab-recipes-crud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdehoogh/lab-recipes-crud/issues"
+  },
+  "homepage": "https://github.com/mdehoogh/lab-recipes-crud#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.8.0",
+    "mongoose-int32": "^0.3.1",
+    "mongoose-long": "^0.2.1",
+    "node-fetch": "^2.6.0"
+  }
+}

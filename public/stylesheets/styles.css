@@ -1,0 +1,24 @@
+.recipe-list{
+    display:flex;
+}
+
+.recipe-list-item{
+    color:red;
+    display:flex;
+    flex-direction: column;
+    justify-content: center; /* center horizontally */
+}
+
+.recipe-title{
+    color:red;
+}
+
+.recipe-cuisine{
+    color:blue;
+}
+
+.separator{
+    width:100%;
+    height:5px;
+    background-color: black;
+}
