@@ -2,15 +2,14 @@ const express = require("express")
 const app = express()
 const Recipe = require("../models/recipe")
 
-
-// PARAMS METHOD
-app.get("/recipes/:id", (req, res) => {
-    Recipe.findById(req.params.id)
-        .then(result => {
+app.get("/recipes/:id/delete", (req, res) => {
+    Recipe.findByIdAndDelete(req.params.id)
+        .then(() => {
             debugger
-            res.render("recipes/singleRecipe", { recipe: result })
+            res.redirect('/recipes')
         })
         .catch(err => console.log(err))
 })
+
 
 module.exports = app

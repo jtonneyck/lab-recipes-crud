@@ -25,7 +25,7 @@ app.get('/', (req, res, next) => {
 app.use("/", require("./routes/list"));
 
 app.use("/", require("./routes/singleRecipe"));
-
+app.use("/", require("./routes/deleteRecipe"));
 
 app.listen(3001, () => {
     console.log("Webserver is listening");

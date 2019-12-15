@@ -13,3 +13,4 @@
 <p><b>Duration: </b>{{recipe.duration}}</p>
 <p><b>Creator: </b>{{recipe.creator}}</p>
 <p><b>Created: </b>{{recipe.created}}</p>
+<form action='/recipes/{{recipe.id}}/delete' method='get'><input type='submit' value='Delete this recipe'></form>
