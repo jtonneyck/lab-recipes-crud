@@ -13,5 +13,6 @@
 <p><b>Duration: </b>{{recipe.duration}}</p>
 <p><b>Creator: </b>{{recipe.creator}}</p>
 <p><b>Created: </b>{{recipe.created}}</p>
-<form action='/recipes/{{recipe.id}}/delete' method='get'><input type='submit' value='Delete this recipe'></form>
-<a href="/edit/{{recipe.id}}">Edit this recipe</a>
+<form action='/recipes/{{recipe.id}}/delete' method='get'><input type='submit' value='Delete this recipe' class="button"></form>
+
+<form action='/edit/{{recipe.id}}' method='get'><input type='submit' value='Edit this recipe' class="button2"></form>

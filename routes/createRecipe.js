@@ -20,8 +20,8 @@ app.post("/create", (req, res) => {
     }
 
     Recipe.create(newRecipe)
-        .then(() => {
-            res.redirect("recipes/")
+        .then(result => {
+            res.render("recipes/singleRecipe", { recipe: result })
         })
         .catch(err => console.log(err))
 })

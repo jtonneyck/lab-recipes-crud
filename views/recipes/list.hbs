@@ -1,4 +1,12 @@
-<h2>List of all recipes:</h2>
-{{#each recipes}}
-    {{> recipe }}
-{{/each}}
+<div class="title">
+    <h1>List of all recipes:</h1>
+</div>
+        <div class="recipes">
+            {{#each recipes}}
+            <div class="recipe">
+                {{> recipe }}
+            </div>
+            {{/each}}
+        </div>
+
+

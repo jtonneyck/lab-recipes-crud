@@ -23,11 +23,13 @@ app.post("/edit", (req, res) => {
         duration: req.body.duration,
         creator: req.body.creator
     }
+
     Recipe.findByIdAndUpdate(recipeId, updatedRecipe, { new: true })
-        .then(() => {
-            res.redirect("recipes/")
+        .then(result => {
+            res.render("recipes/singleRecipe", { recipe: result })
         })
         .catch(err => console.log(err))
 })
+
 
 module.exports = app

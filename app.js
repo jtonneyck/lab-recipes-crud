@@ -17,8 +17,8 @@ app.set('view engine', 'hbs');
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
 
-app.use(express.static(__dirname + "public"));
-// set up handlebars
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res, next) => {
     res.render('index');
 });
@@ -29,6 +29,6 @@ app.use("/", require("./routes/deleteRecipe"));
 app.use("/", require("./routes/createRecipe"));
 app.use("/", require("./routes/editRecipe"));
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log("Webserver is listening");
 })
