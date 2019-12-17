@@ -1,0 +1,34 @@
+<h2>Update an existing recipe!</h2>
+
+<form action="/edit/{{recipe.id}}" method="POST">
+    <input type="text" placeholder="Title recipe" name="title" value="{{recipe.title}}">
+
+    <select type="text" value="{{recipe.level}}" name="level">
+            <option value='Easy Peasy' selected>Easy Peasy</option>
+            <option value='Amateur Chef'>Amateur Chef</option>
+            <option value='UltraPro Chef'>UltraPro Chef</option>
+    </select><br><br>
+
+    <input type="text" placeholder="Ingredients recipe" name="ingredients" value="{{recipe.ingredients}}">
+    <ul>
+        {{#each recipe.ingredients}}
+            {{#each this}} <input type="text" placeholder="Ingredients recipe" name="ingredients" value="{{this}}"> {{/each}}
+        {{/each}}
+    </ul>
+    
+    
+    <input type="text" placeholder="Cuisine" name="cuisine" value="{{recipe.cuisine}}">
+    
+    <select type="text" value="{{recipe.dishType}}" name="dishType">
+        <option value='Breakfast'>Breakfast</option>
+        <option value='Dish' selected>Dish</option>
+        <option value='Snack'>Snack</option>
+        <option value='Drink'>Drink</option>
+        <option value='Dessert'>Dessert</option>
+        <option value='Other'>Other</option>
+    </select><br><br>
+
+    <input type="text" placeholder="image url" name="image" value="{{recipe.image}}">
+    <input type="number" placeholder="duration" name="duration" value="{{recipe.duration}}">
+    <input type="submit">
+</form>

@@ -1,0 +1,15 @@
+<h3>{{recipe.title}}</h3>
+<img src="{{recipe.image}}" alt="">
+<h5>Level: {{recipe.level}}</h5>
+<h5>Ingredients:</h5>
+{{#each recipe.ingredients}}
+<ul>
+    <li>{{this}}</li>
+</ul>
+{{/each}}
+<h5>Cuisine: {{recipe.cuisine}} </h5>
+<h5>Type of dish: {{recipe.dishType}}</h5>
+<h5>Duration: {{recipe.duration}}</h5>
+<h5>creator: {{recipe.creator}}</h5> 
+<h5>created: {{recipe.created}}</h5>
+<a href="/edit/{{recipe.id}}">Edit recipe</a>
