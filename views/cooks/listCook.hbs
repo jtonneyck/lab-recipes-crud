@@ -1,0 +1,5 @@
+<h1>List of cooks</h1>
+{{#each cooks}}
+    <h2><a href="/detailedCook/?id={{this.id}}">{{name}}</a></h2>
+    <a href="/cooks/delete/{{this.id}}">Delete</a>
+{{/each}}

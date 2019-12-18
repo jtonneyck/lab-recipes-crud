@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
-const recipe = require("../models/Recipe");
+const Recipe = require("../models/Recipe");
 
 app.get("/recipes", (req,res)=> {
-    recipe.find({})
+    Recipe.find({})
         .then((recipes)=> {
             res.render("recipes/list.hbs", {recipes: recipes });
         })

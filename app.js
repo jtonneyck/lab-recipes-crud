@@ -37,6 +37,12 @@ app.use("/", require("./routes/createRecipe.js"));
 app.use("/", require("./routes/deleteRecipe.js"));
 app.use("/", require("./routes/editRecipe.js"));
 
+app.use("/", require("./routes/cooks.js"));
+app.use("/", require("./routes/detailedCook.js"));
+app.use("/", require("./routes/createCook.js"));
+app.use("/", require("./routes/deleteCook.js"));
+app.use("/", require("./routes/editCook.js"));
+
 
 
 app.listen(3000, ()=> {
