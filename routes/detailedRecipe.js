@@ -3,7 +3,7 @@ const app = express();
 const Recipe = require("../models/Recipe");
 
 app.get("/detailedRecipe", (req,res)=> {
-    let recipeId = req.query.id
+    let recipeId = req.query.id //queries here also means queries in list.hbs
     Recipe.findById(recipeId)
   
         .populate("creator")

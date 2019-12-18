@@ -1,6 +1,6 @@
 <h1>List of recipes</h1>
 {{#each recipes}}
-    <h2><a href="/detailedRecipe/?id={{this.id}}">{{title}}</a></h2>
+    <h2><a href="/detailedRecipe/?id={{this.id}}">{{title}}</a></h2> {{!-- queries here also means queries in detailedRecipe.js --}}
     <h4>Cuisine: {{cuisine}}</h4>
     <img src="{{image}}" alt="">
     <a href="/recipes/delete/{{this.id}}">Delete</a>
