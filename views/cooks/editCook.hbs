@@ -1,0 +1,7 @@
+<h2>Update the cook!</h2>
+
+<form action="/edit-cook/{{cook.id}}" method="POST">
+    <input type="text" placeholder="Title recipe" name="name" value="{{cook.name}}">
+    <input type="text" placeholder="image url" name="image" value="{{cook.image}}">
+    <input type="submit">
+</form>
