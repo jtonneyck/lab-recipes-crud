@@ -1,7 +1,21 @@
-const mongoose = require("mongoose");
 
-const Recipe = mongoose.model("recipes", {
-    //...
-})
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-module.exports = Recipe;
+const Recipe = mongoose.model('recipes', {
+  title: { type: String, required: true, unique: true },
+  level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']},
+  ingredients: { type: Array },
+  cuisine: { type: String, required: true },
+  dishType: {type: String, enum: ['Breakfast', 'Dish', 'Snack', 'Drink', 'Drink', 'Dessert', 'Other']},
+  image: {type: String, default: 'https://images.media-allrecipes.com/images/75131.jpg'},
+  duration: { type: String, min: '0' },
+  creator: { type: String },
+  created: { type: Date, default: Date.now },
+});
+
+module.exports = Recipe
+
+
+// const RecipeJs = mongoose.model('recipes', 'Recipe');
+// module.exports = RecipeJs;
