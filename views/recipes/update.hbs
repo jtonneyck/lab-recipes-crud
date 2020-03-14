@@ -1,29 +1,31 @@
-<div id="form" class="container">
+<div class="container">
 
-  <h1>Create a new recipe</h1>
+  <h1>Update the recipe</h1>
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <form action="/recipes/create" method="POST">
+      <form action="/recipes/{{oneRecipe.id}}/update" method="POST">
         <div class="form-group">
           <label>Title</label>
-          <input type="text" name="title" class="form-control" placeholder="Title" required="required">
+          <input type="text" name="title" class="form-control" value="{{oneRecipe.title}}" required="required">
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label>Cuisine</label>
-            <input type="text" name="cuisine" class="form-control" placeholder="Cuisine" required="required">
+            <input type="text" name="cuisine" class="form-control" value="{{oneRecipe.cuisine}}" placeholder="Cuisine"
+              required="required">
           </div>
           <div class="form-group col-md-6">
             <label>Dish type</label>
-            <input type="text" name="dishType" class="form-control" placeholder="Dish type">
+            <input type="text" name="dishType" class="form-control" value="{{oneRecipe.dishType}}"
+              placeholder="Dish type">
           </div>
         </div>
         <div class="form-row">
-
           <div class="form-group col-md-6">
             <label>Duration</label>
             <div class="input-group">
-              <input type="number" name="duration" class="form-control" placeholder="Duration" required="required">
+              <input type="number" name="duration" class="form-control" value="{{oneRecipe.duration}}"
+                placeholder="Duration" required="required">
               <div class="input-group-append">
                 <div class="input-group-text">min</div>
               </div>
@@ -31,11 +33,9 @@
           </div>
           <div class="form-group col-md-6">
             <label>Level</label>
-            <input type="text" name="level" class="form-control" placeholder="Level">
+            <input type="text" name="level" class="form-control" value="{{oneRecipe.level}}" placeholder="Level">
           </div>
         </div>
-
-
         <div class="form-group">
           <label>Ingredients</label>
           <ul>
@@ -48,10 +48,9 @@
         </div>
         <div class="form-group">
           <label>Add the Url</label>
-          <input type="text" name="image" class="form-control" placeholder="Add the Url">
+          <input type="text" name="image" class="form-control" value="{{oneRecipe.image}}" placeholder="Add the Url">
         </div>
-
-        <button type="submit" class="btn btn-warning btn-lg btn-block">Create Recipe</button>
+        <button type="submit" class="btn btn-warning btn-lg btn-block">Update Recipe</button>
       </form>
     </div>
   </div>
