@@ -1,18 +1,55 @@
-<form action="/recipe/create" method="POST">
+<div class="container">
 
-  <input type="text" name="title" placeholder="Title">
-  <input type="text" name="cuisine" placeholder="Cuisine">
-  <input type="number" name="duration" placeholder="Duration">
-  <input type="text" name="dishType" placeholder="Dish type">
-  <input type="text" name="level" placeholder="Level">
-  <h4>Ingredients</h4>
-  <ul>
-    <li><input type="text" name="ingredients[]" value="ingredients1" /></li>
-    <li><input type="text" name="ingredients[]" value="ingredients2" /></li>
-    <li><input type="text" name="ingredients[]" value="ingredients3" /></li>
-    <li><input type="text" name="ingredients[]" value="ingredients4" /></li>
-    <li><input type="text" name="ingredients[]" value="ingredients5" /></li>
-  </ul>
-  <button type="submit">Create Recipe</button>
+  <h1>Create a new recipe</h1>
 
-</form>
+  <form action="/recipes/create" method="POST">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" placeholder="Title" required="required">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Cuisine</label>
+        <input type="text" name="cuisine" class="form-control" placeholder="Cuisine" required="required">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Dish type</label>
+        <input type="text" name="dishType" class="form-control" placeholder="Dish type">
+      </div>
+    </div>
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label>Duration</label>
+        <div class="input-group">
+          <input type="number" name="duration" class="form-control" placeholder="Duration" required="required">
+          <div class="input-group-append">
+            <div class="input-group-text">min</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Level</label>
+        <input type="text" name="level" class="form-control" placeholder="Level">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Ingredients</label>
+      <ul>
+        <li><input type="text" name="ingredients[]" placeholder="ingredients1" /></li>
+        <li><input type="text" name="ingredients[]" placeholder="ingredients2" /></li>
+        <li><input type="text" name="ingredients[]" placeholder="ingredients3" /></li>
+        <li><input type="text" name="ingredients[]" placeholder="ingredients4" /></li>
+        <li><input type="text" name="ingredients[]" placeholder="ingredients5" /></li>
+      </ul>
+    </div>
+    <div class="form-group">
+      <label>Add the Url</label>
+      <input type="text" name="image" class="form-control" placeholder="Add the Url">
+    </div>
+
+    <button type="submit" class="btn btn-warning">Create Recipe</button>
+  </form>
+</div>

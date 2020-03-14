@@ -1,0 +1,35 @@
+body {
+  /* background-color: mintcream; */
+  font-family: 'Baloo 2', cursive;
+  background-image: url("kitchen.jpg");
+  /* background-position: center;  */
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.nav-item {
+  list-style-type: none;
+  
+}
+.nav-link {
+  color: white;  
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main h1{
+  font-size: 4em;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+}
+
+.main a{
+  margin: 3vh;
+  padding: 1.5vh;
+}

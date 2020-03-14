@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const hbs = require(`hbs`);
 
 hbs.registerPartials(__dirname + "/views/partials");
+app.use(express.static("public")) 
 
 mongoose
   .connect("mongodb://localhost/recipe-app-dev", {
