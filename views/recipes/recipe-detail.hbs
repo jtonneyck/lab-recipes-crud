@@ -1,0 +1,17 @@
+<h1>{{oneRecipe.title}}</h1>
+<ul>
+  <li>cuisine: {{oneRecipe.cuisine}}</li>
+  <li>duration: {{oneRecipe.duration}}</li>
+  <li>dish type: {{oneRecipe.dishType}}</li>
+  <li>level: {{oneRecipe.level}}</li>
+</ul>
+<h5>Ingredients:</h5>
+<ul>
+  {{#each oneRecipe.ingredients}}
+  <li>{{this}}</li>
+  {{/each}}
+</ul>
+<img src="{{oneRecipe.image}}" alt="Recipe image">
+
+<a href="/recipes/{{oneRecipe.id}}/delete" class="btn btn-default">Delete</a>
+

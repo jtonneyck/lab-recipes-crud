@@ -1,0 +1,18 @@
+<form action="/recipe/create" method="POST">
+
+  <input type="text" name="title" placeholder="Title">
+  <input type="text" name="cuisine" placeholder="Cuisine">
+  <input type="number" name="duration" placeholder="Duration">
+  <input type="text" name="dishType" placeholder="Dish type">
+  <input type="text" name="level" placeholder="Level">
+  <h4>Ingredients</h4>
+  <ul>
+    <li><input type="text" name="ingredients[]" value="ingredients1" /></li>
+    <li><input type="text" name="ingredients[]" value="ingredients2" /></li>
+    <li><input type="text" name="ingredients[]" value="ingredients3" /></li>
+    <li><input type="text" name="ingredients[]" value="ingredients4" /></li>
+    <li><input type="text" name="ingredients[]" value="ingredients5" /></li>
+  </ul>
+  <button type="submit">Create Recipe</button>
+
+</form>
