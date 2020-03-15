@@ -1,5 +1,11 @@
 {{!-- recipe template for one recipe  --}}
-
-<h3>{{this.title}}</h3>
-<h5>{{this.cuisine}}</h5>
-<img src="{{this.image}}" alt="" style="width:400px">
+<div class="recipe-container">
+    <div class="recipe-header">
+        <h3>{{this.title}}</h3>
+        <h5>{{this.cuisine}}</h5>
+    </div>
+    <div class="recipe-img">
+        <img src="{{this.image}}" alt="" style="width:400px">
+        <a href="/recipes/{{recipe._id}}">Click for more details</a>
+    </div>
+</div>
