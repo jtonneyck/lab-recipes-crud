@@ -1,0 +1,16 @@
+<h1>{{recipe.title}}</h1>
+<p>Created by: {{recipe.creater}}</p>
+<p>Date: {{recipe.created}}</p>
+<p>Level: {{recipe.level}}</p>
+<p>Dish type: {{recipe.dishtype}}</p>
+<p>Time in min: {{recipe.duration}}</p>
+<p>Type of cuisine: {{recipe.cuisine}}</p>
+<img src={{recipe.image}}>
+<ul>Ingredients:
+    {{#each recipe.ingredients}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+<a href="/recipes/delete/{{recipe._id}}">
+    <button>Delete recipe</button>
+</a>
