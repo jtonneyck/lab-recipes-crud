@@ -59,7 +59,7 @@ app.post("/:id/update", (req, res) => {
     ingredients: req.body.ingredients,
     image: req.body.image
   })
-    .then(recipe => {
+    .then(() => {
       res.redirect(`/recipes/${req.params.id}`);
     })
     .catch(err => {
@@ -67,26 +67,6 @@ app.post("/:id/update", (req, res) => {
       res.send("error", err);
     });
 });
-
-// app.post("/update", (req,res) =>{
-//   console.log(req.body);
-//   Recipe
-//       .create({
-//           title: req.body.title,
-//           cuisine: req.body.cuisine,
-//           duration: req.body.duration,
-//           dishType: req.body.dishType,
-//           level: req.body.level,
-//           ingredients: req.body.ingredients,
-//           image: req.body.image,
-//       })
-//       .then((newRecipe) =>{
-//         res.redirect(`/recipes/${newRecipe.id}`)
-//       })
-//       .catch((error) =>{
-//           res.send("error", error)
-//       })
-// })
 
 //RECIPE DETAIL
 app.get("/:id", (req, res) => {
@@ -103,10 +83,9 @@ app.get("/:id", (req, res) => {
 });
 
 //DELETE
-
 app.get("/:id/delete", (req, res) => {
   Recipe.findByIdAndDelete(req.params.id)
-    .then(recipe => {
+    .then(() => {
       res.redirect("/recipes");
     })
     .catch(err => {
@@ -114,12 +93,5 @@ app.get("/:id/delete", (req, res) => {
       res.send("error", err);
     });
 });
-
-//to test delete without deleting
-// app.get("/:id/delete", (req, res) => {
-//   console.log(req);
-//   console.log(`The recipe ${req.params.id} will be deleted`);
-//   res.redirect("/recipes");
-// });
 
 module.exports = app;
