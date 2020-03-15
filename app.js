@@ -20,10 +20,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set('view engine', 'hbs');
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
-
 app.use(express.static(__dirname + '/public'));
 
+
+app.use("/", require("./routes/index"));
 app.use("/", require("./routes/recipes"));
+app.use("/", require("./routes/oneRecipe"));
 
 
 app.listen(3000, () => {
