@@ -1,0 +1,13 @@
+{{#each recipesLoop}}
+<a href="/recipes-info/{{id}}">
+    <h1>
+        {{title}}
+    </h1>
+    <img src="{{this.image}}" alt="">
+    <h4>
+        {{this.title}}
+    </h4>
+    <h3>{{cuisine}}</h3>
+</a>
+
+{{/each }}
