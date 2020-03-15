@@ -1,7 +1,9 @@
+{{!-- <div style="border-bottom: "1pt solid black"> --}}
 {{#each recipeList}}
-<a href="/recipes/recipe/{{title}}">
+<a href="/recipes/{{_id}}">
     <h3>{{title}}</h3>
 </a>
 <p>{{cuisine}}</p>
-<img src="{{image}}">
+<img src="{{image}}" >
 {{/each}}
+{{!-- </div> --}}

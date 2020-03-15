@@ -2,39 +2,40 @@ const express = require("express");
 const app = express();
 const Recipe = require("../models/recipe");
 
+//Firstpage
 app.get("/recipes", (req,res)=> {
     Recipe
         .find({})
         .then((recipes)=> {
             res.render('recipes/list', { recipeList: recipes })
-            .catch(err => {
-              res.render('error', err);
+            .catch((err) => {
+              res.send('error');
             });
     })
 })
 
-
-app.get('/recipes/recipe/:title', (req, res) => {
-  Recipe
-  .findOne({title: ''})
-    .then(recipes => {
-      res.render('recipe', { recipeList: recipes });
+//Redirects to one recipe
+app.get('/recipes/:id', (req, res) => {
+  Recipe.findById(req.params.id)
+    .then(recipe => {
+      res.render("recipes/recipe", { recipeList: recipe });
     })
-    .catch(err => {
-      res.send('error', err);
+    .catch((err) => {
+      res.send('error');
     });
 });
 
-// app.get('/movie/search/results', (req, res) => {
-//   console.log(req.query.title);
-//   Movie.find({ title: req.query.title })
-//     .then(moviesData => {
-//       res.render('movies', { moviesHbs: moviesData });
-//     })
-//     .catch(err => {
-//       console.log('error', err);
-//     });
-// });
+//Delete and redirects to firstpage
+app.get('/recipes/delete/:id', (req, res) => {
+  Recipe
+  .findByIdAndDelete(req.params.id)
+    .then(recipe => {
+      res.redirect('/recipes');
+    })
+    .catch((err) => {
+      res.send('error');
+    })
+});
 
 
 
