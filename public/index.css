@@ -44,3 +44,7 @@ h1{
 #form {
   margin-bottom: 50px;
 }
+
+.card-list img{
+  max-height: 250px;
+}
