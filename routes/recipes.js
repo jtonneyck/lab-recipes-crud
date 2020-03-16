@@ -37,11 +37,11 @@ app.get("/recipes/delete/:id", (req, res)=>{
         })
 })
 
-app.get("/recipes/create/create", (req,res)=> {
+app.get("/recipes/create/:id", (req,res)=> {
         res.render("create-recipe");
 })
 
-app.post("/recipes/create/create", (req,res)=> {
+app.post("/recipes/create/:id", (req,res)=> {
     console.log(req.body);
     Recipe
         .create({
@@ -58,5 +58,31 @@ app.post("/recipes/create/create", (req,res)=> {
         })
 })
 
+app.get("/recipes/update/:id", (req,res)=> {
+    Recipe
+        .findById(req.params.id)
+        .then((recipes)=> {
+            res.render("update-recipe", {recipesHbs: recipes});
+        })
+        .catch((err)=> {
+            res.send("Error");
+        })
+})
+
+app.post("/recipes/update/:id", (req,res)=> {
+    Recipe
+        .findByIdAndUpdate(req.params.id,{
+            title: req.body.title,
+            creator: req.body.creator,
+            cuisine: req.body.cuisine,
+            duration: req.body.duration,
+        })
+        .then((recipe)=> {
+            res.redirect(`/recipes/${recipe._id}`);
+        })
+        .catch((err)=> {
+            res.send("err");
+        })
+})
 
 module.exports = app;
