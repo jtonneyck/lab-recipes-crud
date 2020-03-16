@@ -48,3 +48,23 @@ h1{
 .card-list img{
   max-height: 250px;
 }
+
+
+.card-list a{
+  text-decoration: none;
+}
+
+.card-list a:hover {
+  text-decoration: underline;
+  color: #e07300;
+} 
+
+.card-body h5{
+  color: #e07300;
+}
+
+.card-body p{
+  color: grey;
+}
+
+
