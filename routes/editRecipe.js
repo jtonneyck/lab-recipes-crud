@@ -2,17 +2,17 @@ const express = require("express");
 const app = express();
 const Recipe = require("../models/recipe");
 
-app.get("/update/recipeId", (req, res) => {
+app.get("/edit/:id", (req, res) => {
     Recipe
     .findById({_id: req.params.id})
     .then(data =>{
-        res.render("recipes/editRecipe", {recipe: data[0]})
+        res.render("recipes/editRecipe", {recipes: data[0]})
     })
     .catch(err => console.log(err));
 });
 
-app.post("/update", (req, res) => {
-    let recipeId = req.body.recipeId;
+app.post("/edit", (req, res) => {
+    let recipeId = req.body.id;
     let newRecipe = {
         title: req.body.title,
         level: req.body.level,
@@ -26,7 +26,7 @@ app.post("/update", (req, res) => {
     Recipe
     .findByIdAndUpdate(recipeId, newRecipe, {new: true})
     .then(data => {
-        res.render("/recipes/recipeId", {recipe: data})
+        res.render("recipes/oneRecipe", {recipe: data})
     })
     .catch(err => console.log(err));
 })

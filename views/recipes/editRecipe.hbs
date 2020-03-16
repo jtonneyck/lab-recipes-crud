@@ -1,40 +1,40 @@
-<form action="/update" method="POST">
+<form action="/edit" method="POST">
     <label for="title">Title:</label><br>
-    <input type="text" value={{recipe.title}} name="title"><br>
+    <input type="text" value={{recipe.title}}><br>
     
     <label for="level">Difficulty level:</label><br>
-    <input type="text" value={{recipe.level}} name="level"><br><br>
-    <select name="level">
+    <input type="text" value={{recipe.level}}><br>
+    {{!-- <select type="text" name="level">
         <option value="Easy Peasy">Easy peasy</option>
         <option value="Amateur Chef">Amateur Chef</option>
         <option value="mercedes">UltraPro Chef</option>
-    </select>
+    </select><br> --}}
    
     <label for="ingredients">Ingredients:</label><br>
-    <input type="text" value={{recipe.ingredients}} name="ingredients"><br>
+    <input type="text" value={{recipe.ingredients}}><br>
     
     <label for="cuisine">Cuisine:</label><br>
-    <input type="text" value={{recipe.cuisine}} name="cuisine"><br>
+    <input type="text" value={{recipe.cuisine}}><br>
     
     <label for="dishType">Type of Dish:</label><br>
-    <input type="text" value={{recipe.dishType}} name="dishType"><br>
-    <select name="dishTypes">
+    <input type="text" value={{recipe.dishType}}><br>
+    {{!-- <select name="dishTypes">
         <option value="breakfast">Breakfast</option>
         <option value="dish">Dish</option>
         <option value="lunch">Lunch</option>
         <option value="dinner">Dinner</option>
         <option value="dessert">Dessert</option>
-    </select>
+    </select><br> --}}
     
     <label for="image">Image:</label><br>
-    <input type="text" value={{recipe.image}} name="image"><br>
+    <input type="text" name="image" value={{recipe.image}}><br>
     
     <label for="duration">Duration:</label><br>
-    <input type="text" value={{recipe.duration}} name="duration"><br>
+    <input type="text" name="duration" value={{recipe.duration}}><br>
     
     <label for="creator">Creator:</label><br>
-    <input type="text" value={{recipe.creator}} name="creator"><br>
+    <input type="text" value={{recipe.creator}}><br>
    
-    <input type="hidden" value="{{recipe.id}}" name="id">
-    <input type="submit" value="edit">
+    <input type="hidden" value="{{recipe.id}}" name="id"><br>
+    <button type="submit">Edit</button>
 </form>
