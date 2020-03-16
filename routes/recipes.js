@@ -61,4 +61,34 @@ app.post("/create", (req, res) =>{
         })
 })
 
+app.get("/update/:id", (req,res) =>{
+    Recipe
+    .findById(req.params.id)
+    .then((recipeData) =>{
+        res.render("recipes/update", {recipe: recipeData});
+    })
+    .catch((error) =>{
+        console.log(error);
+    })
+})
+
+app.post("/update/:id", (req, res) =>{
+    Recipe
+    .findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        level: req.body.level,
+        ingredients: req.body.ingredients,
+        cuisine: req.body.cuisine,
+        dishType: req.body.dishType,
+        duration: req.body.duration,
+        creater: req.body.creater,
+    })
+    .then((recipe) =>{
+        res.redirect(`/recipes/${recipe.id}`);
+    })
+    .catch((error) =>{
+        console.log(error);
+    })
+})
+
 module.exports = app;

@@ -1,0 +1,9 @@
+<form action="/recipes/update/{{recipe._id}}" method="POST">
+    <input type="text" name="title" value="{{recipe.title}}">
+    <input type="text" name="level" value="{{recipe.level}}">
+    <input type="text" name="ingredients" value="{{recipe.ingredients}}">
+    <input type="text" name="cuisine" value="{{recipe.cuisine}}">
+    <input type="text" name="dishtype" value="{{recipe.dishType}}">
+    <input type="text" name="duration" value="{{recipe.duration}}">
+    <button type="submit">Edit recipe</button>
+</form>
