@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card mb-3">
+      <img src="{{oneRecipe.image}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{oneRecipe.title}}</h5>
+        <ul>
+          <li>cuisine: {{oneRecipe.cuisine}}</li>
+          <li>duration: {{oneRecipe.duration}}</li>
+          <li>dish type: {{oneRecipe.dishType}}</li>
+          <li>level: {{oneRecipe.level}}</li>
+        </ul>
+      </div>
+      <div class="card-body">
+      <div class="row justify-content-around">
+        <a href="/recipes/{{oneRecipe.id}}/update" class="btn btn-warning col-md-5 ">Update recipe</a>
+        <a href="/recipes/{{oneRecipe.id}}/delete" class="btn btn-danger col-md-5">Delete recipe</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
