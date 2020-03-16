@@ -26,6 +26,7 @@ app.use(express.static(__dirname + '/public'));
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/recipes"));
 app.use("/", require("./routes/oneRecipe"));
+app.use("/", require("./routes/editRecipe"));
 
 
 app.listen(3000, () => {
