@@ -26,7 +26,7 @@ app.post("/edit", (req, res) => {
     Recipe
     .findByIdAndUpdate(recipeId, newRecipe, {new: true})
     .then(data => {
-        res.render("recipes/oneRecipe", {recipe: data})
+        res.redirect("recipes/oneRecipe", {recipe: data})
     })
     .catch(err => console.log(err));
 })

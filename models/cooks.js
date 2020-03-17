@@ -1,8 +1,9 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const CooksModel ={
-    name: String,
-    image: String
-}
-
-module.exports = CooksModel;
+const CooksModel = new Schema({
+  name: String,
+  image: String
+});
+const Cook = mongoose.model("cooks", CooksModel);
+module.exports = Cook;

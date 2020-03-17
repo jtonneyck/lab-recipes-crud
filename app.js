@@ -27,6 +27,7 @@ app.use("/", require("./routes/index"));
 app.use("/", require("./routes/recipes"));
 app.use("/", require("./routes/oneRecipe"));
 app.use("/", require("./routes/editRecipe"));
+app.use("/", require("./routes/signup"));
 
 
 app.listen(3000, () => {
