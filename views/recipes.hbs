@@ -12,7 +12,13 @@
 {{#each recipes}}
     <div class="recipe">
         <h3>{{title}}</h3>
-        <a href="/recipe-info/{{_id}}">Details</a>
-        <a href="/delete-recipe/{{_id}}">Delete this recipe</a>
+        <div class='recipe-list-box'>
+            <a id='recipe-list' href="/recipe-info/{{_id}}">Details</a>
+        </div>
+        <div class='delete-box'>
+            <a id='deleter' href="../delete-recipe/{{recipe._id}}">Delete this recipe</a>
+        </div>
     </div>
 {{/each}}
+
+        

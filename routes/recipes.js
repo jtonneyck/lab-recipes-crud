@@ -29,5 +29,18 @@ app.post('/recipes', (req,res)=>{
         })
 })
 
+app.post('/edit/:id', (req, res)=>{
+    Recipe
+        .findByIdAndUpdate(req.params.id, {
+            title:req.body.title,
+            cuisine:req.body.cuisine,
+            creator:req.body.creator,
+            duration:req.body.duration
+        })
+        .then(recipe=>{
+            res.redirect('/recipe-info/' + req.params.id)
+        })
+        .catch(err=>console.log(err))
+})
 
 module.exports = app

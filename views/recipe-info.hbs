@@ -1,6 +1,19 @@
-<h1>title: {{recipe.title}}</h1>
-<h3>cuisine: {{recipe.cuisine}}</h3>
-<h3>creator: {{recipe.creator}}</h3>
-<h3>duration: {{recipe.duration}}</h3>
-<a href="/recipes">go back to recipes list</a>
-<a href="../delete-recipe/{{recipe._id}}">Delete this recipe</a>
+<div class="recipe-info">
+    <h1>{{recipe.title}}</h1>
+    <h3>cuisine: {{recipe.cuisine}}</h3>
+    <h3>creator: {{recipe.creator}}</h3>
+    <h3 id='oen'>duration: {{recipe.duration}}</h3>
+    <div class='recipe-list-box'>
+        <a id='recipe-list' href="/recipes">go back to recipes list</a>
+    </div>
+    <div class='delete-box'>
+        <a id='deleter' href="../delete-recipe/{{recipe._id}}">Delete this recipe</a>
+    </div>
+    <form class='update-form' action="/edit/{{recipe._id}}" method='POST'>
+        Title:<br><input type="text" name="title" value="{{recipe.title}}"> <br>
+        Cuisine:<br><input type="text" name="cuisine" value="{{recipe.cuisine}}"> <br>
+        Creator:<br><input type="text" name="creator" value="{{recipe.creator}}"> <br>
+        Duration:<br><input type="text" name="duration" value="{{recipe.duration}}"> <br>
+        <button type="submit">Edit Recipe</button>
+    </form>
+</div>
