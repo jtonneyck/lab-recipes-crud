@@ -4,6 +4,12 @@
 
     <label for="password">Password</label>
     <input type="password" name="password" placeholder="password"><br>
+
+    {{!-- error message view --}}
+    {{#if errorMessage}}
+    <div class="error-message">{{ errorMessage }}</div>
+    {{/if}}
     <br>
+    
     <button type="submit">Create account</button>
 </form>

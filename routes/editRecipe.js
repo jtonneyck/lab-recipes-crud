@@ -4,14 +4,15 @@ const Recipe = require("../models/recipe");
 
 app.get("/edit/:id", (req, res) => {
     Recipe
-    .findById({_id: req.params.id})
+    .findById(req.params.id)
     .then(data =>{
-        res.render("recipes/editRecipe", {recipes: data[0]})
+        res.render("recipes/editRecipe", {recipe: data}) //recipe match 1
     })
     .catch(err => console.log(err));
 });
 
 app.post("/edit", (req, res) => {
+
     let recipeId = req.body.id;
     let newRecipe = {
         title: req.body.title,
@@ -25,8 +26,10 @@ app.post("/edit", (req, res) => {
     }
     Recipe
     .findByIdAndUpdate(recipeId, newRecipe, {new: true})
-    .then(data => {
-        res.redirect("recipes/oneRecipe", {recipe: data})
+    .then(recipeDocument => {
+        // res.redirect(`/edit/${recipeDocument._id}`)
+        res.render('recipes/oneRecipe.hbs', {recipe: recipeDocument})
+
     })
     .catch(err => console.log(err));
 })
