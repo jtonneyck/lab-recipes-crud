@@ -1,0 +1,24 @@
+<form action="/recipes" method='POST'>
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="cuisine" placeholder="cuisine">
+    <input type="text" name="creator" placeholder="creator">
+    <input type="text" name="duration" placeholder="duration">
+    <button type="submit">Add Recipe</button>
+</form>
+
+
+<hr>
+<hr>
+{{#each recipes}}
+    <div class="recipe">
+        <h3>{{title}}</h3>
+        <div class='recipe-list-box'>
+            <a id='recipe-list' href="/recipe-info/{{_id}}">Details</a>
+        </div>
+        <div class='delete-box'>
+            <a id='deleter' href="../delete-recipe/{{recipe._id}}">Delete this recipe</a>
+        </div>
+    </div>
+{{/each}}
+
+        
