@@ -1,0 +1,15 @@
+<h1>{{recipeHbs.title}}</h1>
+<p>{{recipeHbs.cuisine}}</p>
+<p>Level: {{recipeHbs.level}}</p>
+<p>Type of dish: {{recipeHbs.dishType}}</p>
+<p>Duration: {{recipeHbs.duration}}</p>
+<p>Created by: {{recipeHbs.creator}}</p>
+<p>Ingredients</p>
+<ul>
+    {{#each recipeHbs.ingredients}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+<p><a href="/recipes/delete/{{recipeHbs._id}}">delete</a>
+    <a href="/recipes/update/{{recipeHbs._id}}">update</a></p>
+<img src="{{recipeHbs.image}}" alt="">
