@@ -17,7 +17,7 @@ app.post("/login", (req, res, next) => {
       });
       return;
     }
-  
+  // authentication for the user login
     User.findOne({ "username": theUsername })
     .then(user => {
         if (!user) {
@@ -26,9 +26,9 @@ app.post("/login", (req, res, next) => {
           });
           return;
         }
-        if (thePassword, user.password) {
-          // Save the login in the session!
-          // req.session.currentUser = user;
+        if ({"password": thePassword}) {
+          // saves login in, creates users session
+          req.session.currentUser = user; 
           res.redirect("/");
         } else {
           res.render("user/login", { errorMessage,

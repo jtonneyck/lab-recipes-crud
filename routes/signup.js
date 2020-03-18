@@ -44,7 +44,7 @@ app.post("/signup", (req, res) => {
       //create user
       User.create({ username, password })
         .then(user => {
-          res.redirect("/"); //redirects to the index.hbs
+          res.redirect("/"); //redirects to the list.hbs
         })
         .catch(err => {
           res.send("user not created", err);
