@@ -1,18 +1,22 @@
+require('dotenv').config() //env config
 const express = require("express");
+const cookieParser = require('cookie-parser') // require package cookie parser
 const hbs = require("hbs")
 const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser') // require package cookie parser
 const mongoose = require("mongoose")
 const session    = require("express-session"); //adds package to use sessions (Cookies)
 const MongoStore = require("connect-mongo")(session); //adds package to store session in mongo
 const cookie = require('cookie'); //require cookie package
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/recipesDb', {
+app.use(cookieParser())
+
+mongoose.connect(process.env.db , {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
 .then(()=> {
+  console.log("process.env.db", process.env.db)
     console.log("Connected to database");
 })
 .catch((error)=> {
@@ -45,6 +49,6 @@ app.use(session({
   }));
 // 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Webserver is listening");
 })

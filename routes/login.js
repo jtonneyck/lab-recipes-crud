@@ -13,7 +13,7 @@ app.post("/login", (req, res, next) => {
   
     if (theUsername === "" || thePassword === "") {
       res.render("user/login", {
-        errorMessage: "Please fill in both username and password to sign up."
+        errorMessage: "Please fill in both username and password to log in."
       });
       return;
     }
@@ -26,12 +26,12 @@ app.post("/login", (req, res, next) => {
           });
           return;
         }
-        if (bcrypt.compareSync(thePassword, user.password)) {
+        if (thePassword, user.password) {
           // Save the login in the session!
-          req.session.currentUser = user;
+          // req.session.currentUser = user;
           res.redirect("/");
         } else {
-          res.render("auth/login", {
+          res.render("user/login", { errorMessage,
             errorMessage: "Incorrect password"
           });
         }
