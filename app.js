@@ -4,6 +4,13 @@ app.set('view engine', 'hbs');
 const mongoose = require('mongoose');
 //app.set("PORT", 3002)
 var hbs = require('hbs');
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+
+
 mongoose.connect('mongodb://localhost/recipe-app-dev', {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -17,9 +24,12 @@ mongoose.connect('mongodb://localhost/recipe-app-dev', {
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-app.use("/", require("./routes/index"))
-app.use("/", require("./routes/recipes"))
-app.use("/", require("./routes/recipedetail"))
+app.use("/", require("./routes/index"));
+app.use("/", require("./routes/recipes"));
+app.use("/", require("./routes/recipedetail"));
+app.use("/", require("./routes/delete"));
+app.use("/", require("./routes/createRecipe"));
+
     // app.use("/", require("./routes/update"))
 
 

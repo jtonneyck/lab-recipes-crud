@@ -1,16 +1,16 @@
 const express = require("express");
 const app = express()
 const Recipe = require("../models/recipe")
-app.get("/recipe-files/:id", (req, res) => {
+
+
+app.get("/recipedetail/:id", (req,res)=> {
     Recipe
         .findById(req.params.id)
-        .then(recipeData => {
-            console.log(recipeData)
-            res.render("recipeDetails", { recipe: recipeData })
+        .then((recipeId)=> {
+            res.render("recipedetail", {recipe: recipeId});
         })
-        .catch((error) => {
-            console.log("error error error", error)
+        .catch((err)=> {
+            res.send("error");
         })
 })
-
 module.exports = app;
