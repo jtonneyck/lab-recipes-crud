@@ -19,7 +19,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use("/", require("./routes/index"))
 app.use("/", require("./routes/recipes"))
 app.use("/", require("./routes/recipedetail"))
-    // app.use("/", require("./routes/update"))
+app.use("/", require("./routes/update"))
 
 
 
