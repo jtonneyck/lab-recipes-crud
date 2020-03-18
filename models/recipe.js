@@ -1,7 +1,12 @@
-const mongoose = require("mongoose");
-
-const Recipe = mongoose.model("recipes", {
-    //...
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const recipeSchema = new Schema({
+    title: String,
+    cuisine: String,
+    image: String
 })
 
-module.exports = Recipe;
+
+const Recipes = mongoose.model("recipe", recipeSchema)
+
+module.exports = Recipes;
