@@ -1,11 +1,11 @@
 <h3>Welcome!</h3>
 <p>On this page you can read, delete and create new recipes. Give it a go!</p>
 
-<a href="/create">Create a new recipe to the bank!</a>
+<a href="/recipes/create">Create a new recipe to the bank!</a>
 
 {{#each recipeList}}
 <div style="border: outset">
-<a href="/recipes/{{_id}}">
+<a href="/recipes/details/{{_id}}">
     <h3>{{title}}</h3>
 </a>
 <p>{{cuisine}}</p>

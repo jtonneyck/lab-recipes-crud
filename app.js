@@ -6,13 +6,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 mongoose
   .connect('mongodb://localhost:27017/recipe-app-dev', {
+    useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    
   })
-  .then(x =>
+  .then((x) =>{
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  )
-  .catch(err => {
+  })
+  .catch((error) => {
     console.log('Error connecting to mongo', error);
   });
 
@@ -23,6 +25,11 @@ app.use('/', require('./routes/recipes'));
 app.set('view engine', 'hbs');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials');
+
+//error page
+app.use((err, req, res, next) => {
+  res.render('error.hbs', { message: err });
+});
 
 app.set('PORT', 3000);
 app.listen(app.get('PORT'), () => {

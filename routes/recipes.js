@@ -3,25 +3,38 @@ const app = express();
 const Recipe = require("../models/recipe");
 
 //Firstpage
-app.get("/recipes", (req,res)=> {
+app.get("/recipes", (req,res, next)=> {
     Recipe
         .find({})
         .then((recipes)=> {
             res.render('recipes/list', { recipeList: recipes })
             .catch((err) => {
-              res.send('error');
+              next('Error, something went wrong.');
             });
     })
 })
 
+//Redirects to one recipe
+app.get('/recipes/details/:id', (req, res, next) => {
+  Recipe
+  .findById(req.params.id)
+    .then(recipe => {
+      res.render('recipes/recipe', { recipeList: recipe });
+    })
+    .catch((err) => {
+      next('Error, something went wrong.');
+    });
+});
+
 // //Create a new recipe
-app.get('/create', (req, res) => {
+app.get('/recipes/create', (req, res) => {
   res.render('recipes/createRecipe');
 });
 
-app.post('/create', (req, res) => {
+app.post('/recipes/create', (req, res, next) => {
   console.log(req.body);
-  Recipe.create({
+  Recipe
+  .create({
     title: req.body.title,
     level: req.body.level,
     ingredients: req.body.ingredients,
@@ -32,54 +45,39 @@ app.post('/create', (req, res) => {
     creator: req.body.creator,
     created: req.body.created,
   })
-    .then(recipe => {
-      res.redirect(`/recipes/${recipe.id}`);
+    .then((recipe) => {
+      res.redirect(`/recipes/details/${recipe._id}`);
     })
     .catch(err => {
-      res.send('error');
-    });
-  // res.render("createRecipe");
-});
-
-//Redirects to one recipe
-app.get('/recipes/:id', (req, res) => {
-  Recipe.findById(req.params.id)
-    .then(recipe => {
-      res.render('recipes/recipe', { recipeList: recipe });
-    })
-    .catch((err) => {
-      res.send('error');
+      next('Error, could not create new recipe.');
     });
 });
 
 //Delete and redirects to firstpage
-app.get('/recipes/delete/:id', (req, res) => {
+app.get('/recipes/delete/:id', (req, res, next) => {
   Recipe
   .findByIdAndDelete(req.params.id)
     .then(recipe => {
       res.redirect('/recipes');
     })
     .catch((err) => {
-      res.send('error');
+      next('Error, something went wrong.');
     });
 });
 
-
-
-
 //Update a recipe
-// app.get('/recipes/update/:id', (req, res) => {
+// app.get('/recipes/update/:id', (req, res, next) => {
 //   Recipe
 //   .findById(req.params.id)
 //     .then((recipe) => {
 //       res.redirect('/recipes/update/:id', {recipeList: recipe});
 //     })
 //     .catch((err) => {
-//       res.send('error');
+//       next('Error, something went wrong.');
 //     });
 // });
 
-// app.post('/recipes/update/:id', (req, res) => {
+// app.post('/recipes/update/:id', (req, res, next) => {
 //   Recipe
 //   .findByIdAndUpdate(req.params.id, {
 //     title: req.body.title,
@@ -91,10 +89,8 @@ app.get('/recipes/delete/:id', (req, res) => {
 //       res.redirect(`/recipes/${recipeList._id}`);
 //     })
 //     .catch(err => {
-//       res.send('err');
+//       next('Error, something went wrong.');
 //     });
 // });
-
-
 
 module.exports = app

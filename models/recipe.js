@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
-const Recipe = mongoose.model('recipes', {
+const recipeSchema = new Schema({
   title: { type: String, required: true, unique: true },
   level: {type: String, enum: ['Easy Peasy', 'Amateur Chef', 'UltraPro Chef']},
   ingredients: { type: Array },
@@ -14,8 +14,5 @@ const Recipe = mongoose.model('recipes', {
   created: { type: Date, default: Date.now },
 });
 
+const Recipe = mongoose.model('recipes', recipeSchema);
 module.exports = Recipe
-
-
-// const RecipeJs = mongoose.model('recipes', 'Recipe');
-// module.exports = RecipeJs;
