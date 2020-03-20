@@ -1,6 +1,13 @@
+<h1> LIST OF RECIPES</h1>
+
 {{#each recipes}}
-<h1>{{title}}</h1>
-<h1>{{cuisine}}</h1>
-<a href="/recipe-files/{{_id}}"><img src="{{image}}"></a>
-<a href="/recipe-files/{{update}}">Click here to Edit</a>
+<h2>{{title}}</h2>
+<h2>{{cuisine}}</h2>
+<div class="links">
+<a href="/recipedetail/{{_id}}">go to detail page</a><br>
+<a href="/delete/{{_id}}">delete Recipe</a>
+</div>
+<img src="{{image}}">
+
+
 {{/each}}
