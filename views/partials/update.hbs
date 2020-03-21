@@ -1,0 +1,9 @@
+<form action="/recipes/update/{{recipeHbs._id}}" method="POST">
+    <input type="text" value="{{recipeHbs.title}}" name="title" placeholder="Dish Title">
+    <input type="text" value="{{recipeHbs.level}}" name="level" placeholder="Dish Prep Level">
+    <input type="text" value="{{recipeHbs.cuisine}}" name="cuisine" placeholder="Cuisine">
+    <input type="text" value="{{recipeHbs.dishType}}" name="dishType" placeholder="Dish Type">
+    <input type="text" value="{{recipeHbs.duration}}" name="duration" placeholder="Preparation time">
+    <input type="text" value="{{recipeHbs.creator}}" name="creator" placeholder="Dish Creator">
+    <button type="submit">Update</button>
+</form>

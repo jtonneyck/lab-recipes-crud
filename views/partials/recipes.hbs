@@ -1,0 +1,7 @@
+{{#each recipeHbs}}
+    <h1>{{title}}</h1>
+    {{!-- <h2>{{cuisine}}</h2> --}}
+    {{!-- <a href="/recipes/detail"><img src="{{image}}" alt="{{title}}"></a> --}}
+    <a href="/recipes/detail/{{_id}}">Go to recipe detail page</a>
+    <a href="/recipes/delete/{{_id}}">Delete recipe</a>
+{{/each}}
