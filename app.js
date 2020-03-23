@@ -37,7 +37,8 @@ app.use(cookieParser()) //require cookie parser package
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
 hbs.registerPartials(__dirname + "/views/partials");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public/"));
+app.use(express.static(("/uploads/")))
 
 
 app.use("/", require("./routes/intro"));
@@ -47,6 +48,7 @@ app.use("/", require("./routes/editRecipe"));
 app.use("/", require("./routes/signup"));
 app.use("/", require("./routes/login"));
 app.use("/", require("./routes/homepage"));
+app.use("/", require("./routes/create"));
 
 
 
