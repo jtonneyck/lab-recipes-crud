@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
 const path = require('path');
 hbs.registerPartials(__dirname + '/views/partials');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 
 //Setting up MONGOOSE
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/my_database', {
+  .connect('mongodb://localhost/recipe-app-dev', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

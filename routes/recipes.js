@@ -12,7 +12,7 @@ app.get("/recipes", (request, response) => {
             response.render('recipes', {recipeHbs: recipeData});
         })
         .catch((error) => {
-            response.send("error", error);
+            response.send("error charles!", error);
         });
 });
 
@@ -45,7 +45,7 @@ app.get("/recipes/create", (request,response)=> {
     response.render("add");
 });
 
-app.post("/recipes/create", upload.single('preparationSteps'), (request,response)=> {
+app.post("/recipes/create", upload.single('preparationSteps'), (request,response) => {
     Recipe
         .create({
             title: request.body.title,
@@ -57,10 +57,12 @@ app.post("/recipes/create", upload.single('preparationSteps'), (request,response
             file: request.file.filename
         })
         .then((recipeInfo)=> {
-            response.redirect(`/recipes`);
+            console.log("Yes")
+            response.redirect("/recipes");
         })
         .catch((err)=> {
-            response.send("error");
+            console.log("No")
+            response.send("error CVDB");
         });
 });
 
