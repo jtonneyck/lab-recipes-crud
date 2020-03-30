@@ -1,0 +1,40 @@
+<form action="/create" method="POST" enctype="multipart/form-data">
+    <label for="title">Title:</label>
+    <input type="text" name="title" value={{recipe.title}}><br>   {{!-- recipe match 1 --}}
+  
+    <label for="level">Difficulty level:</label>
+    <input type="text" name="level" value={{recipe.level}}><br>
+    {{!-- <select type="text" name="level">
+        <option value="Easy Peasy">Easy peasy</option>
+        <option value="Amateur Chef">Amateur Chef</option>
+        <option value="mercedes">UltraPro Chef</option>
+    </select><br> --}}
+   
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" name="ingredients" value={{recipe.ingredients}}><br>
+    
+    <label for="cuisine">Cuisine:</label>
+    <input type="text" name="cuisine" value={{recipe.cuisine}}><br>
+    
+    <label for="dishType">Type of Dish:</label>
+    <input type="text" name="dishType" value={{recipe.dishType}}><br>
+    {{!-- <select name="dishType">
+        <option value="breakfast">Breakfast</option>
+        <option value="dish">Dish</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="dessert">Dessert</option>
+    </select><br> --}}
+    
+    <label for="image">Image:</label>
+    <input type="file" name="rcpImg" value={{recipe.image}}><br> 
+    {{!-- name match 1 see js--}} 
+    <label for="duration">Duration:</label>
+    <input type="number" name="duration" value={{recipe.duration}}><br>
+    
+    <label for="creator">Creator:</label>
+    <input type="text" name="creator" value={{recipe.creator}}><br>
+   
+    <input type="hidden" value="{{recipe.id}}" name="id"><br>
+    <input type="submit" class="btn">
+</form>
