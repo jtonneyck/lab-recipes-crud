@@ -1,0 +1,34 @@
+<div>New Recipe</div>
+<div>
+<form method="post" action="/recipes/update">
+<input type="hidden" value="{{_id}}" name="id" />
+<label for="name">TITLE</label>
+<input type="text" value="{{title}}" name="title" />
+
+<label for="name">LEVEL</label>
+<input type="text" value="{{level}}" name="level" />
+
+<label for="name">INGREDIENTS</label>
+<input type="text" value="{{ingredients}}" name="ingredients" />
+
+<label for="name">COUSINE</label>
+<input type="text" value="{{cousine}}" name="cousine" />
+
+<label for="name">DISHTYPE</label>
+<input type="text" value="{{dishType}}" name="dishType" />
+
+<label for="name">IMAGE</label>
+<input type="text" value="{{image}}" name="image" />
+
+<label for="name">DURATION</label>
+<input type="text" value="{{duration}}" name="duration" />
+
+<label for="name">CREATOR</label>
+<input type="text" value="{{creator}}" name="creator" />
+
+<label for="name">CREATED</label>
+<input type="date" value="{{created}}" name="created" />
+
+<input type="submit" value="Update Recipe" />
+</form>
+</div>
