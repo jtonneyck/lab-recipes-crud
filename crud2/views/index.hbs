@@ -1,0 +1,21 @@
+<div>Recipe List</div>
+<div>
+	<ul>
+		{{#each data}}
+		<li>
+                  <a href="/recipes/recipe/{{_id}}">
+
+                  
+            <img height="20" src="{{image}}">
+            <span>{{title}}&nbsp;({{level}})</span>
+            </a>
+            
+            <a href="/recipes/delete/{{_id}}">delete</a>
+            
+            <a href="/recipes/update/{{_id}}">Edit</a>
+
+            </li>
+		{{/each}}
+	</ul>
+      <a href="/recipes/create">create recipe</a>
+</div>
