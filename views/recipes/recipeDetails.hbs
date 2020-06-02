@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <img src="{{recipe.image}}" alt="{{recipe.title}} img">
+            <h5>{{recipe.title}}</h5>
+            <h6>Level: {{recipe.level}}</h6>
+            <h6>Cuisine: {{recipe.cuisine}}</h6>
+            <h6>Course: {{recipe.dishType}}</h6>
+            <h6>Cooking time: {{recipe.duration}} minutes</h6>
+            <h6>Creator: {{recipe.creator}}</h6>
+            <h6>Created: {{recipe.created}}</h6>
+            <h6><a href="/recipe/delete?id={{recipe._id}}">Delete this recipe</a></h6>
+            <h6><a href="/recipe/update?id={{recipe._id}}">Update this recipe</a></h6>
+        </div>
+    </div>
+</div>
+

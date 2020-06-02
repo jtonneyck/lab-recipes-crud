@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>The recipes today are:</h1>
+    <div class="row">
+            {{#each recipes}}
+                <div class="col-4">
+                    <img src="{{image}}" alt="{{title}} img">
+                    <h5><a href="/recipe/details?id={{_id}}">{{title}}</a></h5>
+                </div>
+            {{/each}}
+    </div>
+</div>  
