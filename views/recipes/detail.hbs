@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row py-3 px-2">
+        <div class="col-12">
+            <h1>{{recipe.title}}</h1>
+            <img src="{{recipe.image}}" alt="{{recipe.title}}">
+            <h2>Ingredients: </h2>
+            <ul>
+                {{#each recipe.ingredients}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+            <p> <b>Level:</b>  {{recipe.level}}</p>
+            <p> <b>Cuisine : </b> {{recipe.cuisine}}</p>
+            <p> <b>Dish type: </b> {{recipe.dishType}}</p>          
+            <p> <b>Creator: </b> {{recipe.creator}}</p>
+            <p> <b>Duration: </b> {{recipe.duration}}</p>
+            <p> <b>Created: </b> {{recipe.created}}</p>
+            <a href="/delete?id={{recipe._id}}">Delete this recipe</a>
+            <a href="/update?id={{recipe._id}}">Update this recipe</a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+<form action="/update?id={{recipe._id}}" method="POST">
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="title" value="{{recipe.title}}">
+    </div>
+    <div class="form-group">
+      <label>Level</label>
+      <select name="level" class="form-control">
+        <option selected>{{recipe.level}}</option>
+        <option>Amateur Chef</option>
+        <option>UltraPro Chef</option>
+        <option>Easy Peasy</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Cuisine</label>
+      <select name="cuisine" class="form-control">
+        <option selected>{{recipe.cuisine}}</option>
+        <option>Asian</option>
+        <option>American</option>
+        <option>Italian</option>
+        <option>French</option>
+        <option>Indian</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Dish Type</label>
+      <select name="dishType" class="form-control">
+        <option selected>{{recipe.dishType}}</option>
+        <option>breakfast</option>
+        <option>main_course</option>
+        <option>dessert</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Creator</label>
+      <input type="text" class="form-control" name="creator"  value="{{recipe.creator}}">
+    </div>
+    <div class="form-group">
+      <label>Duration</label>
+      <input type="text" class="form-control" name="duration" value="{{recipe.duration}}">
+    </div>
+    <div class="form-group">
+      <label>Imagr Url</label>
+      <input type="text" class="form-control" name="image" value="{{recipe.image}}">
+    </div>
+    <div class="form-group">
+      <label>Ingredients (please enter comma separated values)</label>
+      <textarea class="form-control" name="ingredients" rows="5">{{recipe.ingredients}}</textarea>
+    </div>
+  <button class="btn btn-primary">Update</button>
+</form>
+</div>
