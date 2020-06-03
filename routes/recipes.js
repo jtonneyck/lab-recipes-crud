@@ -1,13 +1,16 @@
-const express = require("express");
-const app = express();
-const Recipe = require("../models/recipe");
+const express = require('express');
+const  app = express();
+const Recipe = require('../models/Recipe.model');
 
-app.get("/", (req,res)=> {
-    Recipe.find({})
-        .then((recipes)=> {
-            res.render("recipes/list", recipes);
-        })
-        .catch((err)=> {
-            res.render("error", err);
-        })
+app.get('/',(req, res) =>{
+    Recipe
+      .find({})
+      .then(allRecipes => {
+        res.render('index.hbs', {allRecipes})
+      })
+      .catch(error => {
+        console.error('Cannot render recipes', error);
+      })
 })
+
+module.exports = app
