@@ -1,0 +1,119 @@
+/* ====================================================RESET CODE ==========================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* ====================================My styles ==========================*/
+header{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+header nav ul{
+    display: flex;
+    flex-direction: row;
+}
+header nav ul li{
+    padding: 2rem;
+    list-style: none;
+}
+header nav ul li a{
+    list-style: none;
+    font-size: 3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: tan;
+    text-shadow: black 2px 2px ;
+    text-transform: uppercase;
+}
+
+#body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: grey;
+}
+
+.recipe-box{
+    text-align: center;
+    padding: 5rem;
+}
+.recipe-box img{
+    border-radius: 100%;
+}
+.recipe-box h3{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    color: grey;
+    text-shadow: black 2px 2px ;
+    text-transform: uppercase;
+}
+.recipe-box a{
+    align-self: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: tan;
+    border-bottom: indianred 2px solid;
+    padding: 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+form input{
+    padding: 1rem;
+    text-align: center;
+    margin: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 30%;
+    align-self: center;
+}
+form button{
+    padding: 1rem;
+    text-align: center;
+    margin: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 30%;
+    align-self: center;
+}
+#details{
+    align-self: center;
+    text-align: center;
+}
+#details img{
+    width: 50%;
+}
+
+#details h1{
+    align-self: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: tan;
+    border-bottom: tan 2px solid;
+    padding: 1%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

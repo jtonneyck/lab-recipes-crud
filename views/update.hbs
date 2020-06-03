@@ -1,0 +1,21 @@
+<form action="/update/add" method="post">
+  <input type="text" hidden value ="{{recipe._id}}" name="_id">
+   
+  <input type="text" value ="{{recipe.title}}" name="title">
+ 
+  <input type="text" value="{{recipe.ingredients}}" name="ingredients">
+ 
+  <input type="text" value="{{recipe.level}}" name="level">
+
+  <input type="text" value="{{recipe.cuisine}}" name="cuisine">
+
+  <input type="text" value="{{recipe.dishType}}" name="dishType">
+
+  <input type="text" value="{{recipe.image}}" name="image">
+ 
+  <input type="number" value="{{recipe.duration}}" name="duration">
+
+  <input type="text" value="{{recipe.creator}}" name="creator">
+ 
+  <button type="submit">ADD</button>
+</form>
