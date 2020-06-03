@@ -1,37 +1,39 @@
-<div class="container">
-<form action="/create" method="POST">
+<div class="container py-5">
+  <form action="/create" method="POST">
     <div class="form-group">
       <label>Title</label>
       <input type="text" class="form-control" name="title" placeholder="recipe title">
     </div>
-    <div class="form-group">
-      <label>Level</label>
-      <select name="level" class="form-control">
-        <option selected>Choose...</option>
-        <option>Amateur Chef</option>
-        <option>UltraPro Chef</option>
-        <option>Easy Peasy</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Cuisine</label>
-      <select name="cuisine" class="form-control">
-        <option selected>Choose...</option>
-        <option>Asian</option>
-        <option>American</option>
-        <option>Italian</option>
-        <option>French</option>
-        <option>Indian</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Dish Type</label>
-      <select name="dishType" class="form-control">
-        <option selected>Choose...</option>
-        <option>breakfast</option>
-        <option>main_course</option>
-        <option>dessert</option>
-      </select>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Level</label>
+        <select name="level" class="form-control">
+          <option selected>Choose...</option>
+          <option>Amateur Chef</option>
+          <option>UltraPro Chef</option>
+          <option>Easy Peasy</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Cuisine</label>
+        <select name="cuisine" class="form-control">
+          <option selected>Choose...</option>
+          <option>Asian</option>
+          <option>American</option>
+          <option>Italian</option>
+          <option>French</option>
+          <option>Indian</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label>Dish Type</label>
+        <select name="dishType" class="form-control">
+          <option selected>Choose...</option>
+          <option>breakfast</option>
+          <option>main_course</option>
+          <option>dessert</option>
+        </select>
+      </div>
     </div>
     <div class="form-group">
       <label>Creator</label>
@@ -49,6 +51,6 @@
       <label>Ingredients (please enter comma separated values)</label>
       <textarea class="form-control" name="ingredients" rows="5" placeholder="1 cup sugar,1 cup milk..."></textarea>
     </div>
-  <button class="btn btn-primary">Add</button>
-</form>
+    <button class="btn btn-outline-secondary">Add</button>
+  </form>
 </div>
