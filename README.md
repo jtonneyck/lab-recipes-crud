@@ -1,10 +1,10 @@
 # LAB RECIPES CRUD
 
 - [x] Database
-- webserver[x]
-- dynamic views [x]
-- front-end [x] 
-- connecting all of them? []
+- [x] webserver
+- [x] dynamic views 
+- [x] front-end 
+- [] connecting all of them? 
 
 During the punkAPI LAB you practice creating views based on data coming from the API. With the recipes LAB you practice how to create, read, update and delete documents in the mongo database. Now we would like to read recipes from the mongoDB and pass them to handlebars. We would also like to send a new recipes from the front-end to the webserver and store it in the db so that the user can retrieve it later. We would also like be edit a recipe or remove one if we're not happy with it.
 
