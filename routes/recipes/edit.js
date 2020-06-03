@@ -2,8 +2,10 @@ const express = require('express')
 const app = express()
 const Recipe = require("../../models/recipes.js");
 
+let idToEditRecipe = "";
+
 app.get('/recipes/details/edit', (req, res, next) => {
-    let idToEditRecipe = req.query.id
+    idToEditRecipe = req.query.id
 
     Recipe.findOne({ _id: idToEditRecipe})
         .then(recipes => {
@@ -16,17 +18,26 @@ app.get('/recipes/details/edit', (req, res, next) => {
 
 // This is where I left, to update the recipe in the database
 
-// app.post('/recipes/details/edit', (req, res, next) => {
-//     debugger
-
-//     const { title, level, /*ingredients,*/ cuisine, dishType, image, duration, creator, created } = req.body;
-//     Recipe.updateMany({ _id: req.query.id }, { $set: { title, level, /*ingredients,*/ cuisine, dishType, image, duration, creator, created } }, { new: true })
-//         .then((recipes) => {
-//             res.redirect(`/recipes/details/?id=${recipes._id}`);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
-// });
+app.post('/recipes/details/edit', (req, res, next) => {
+    Recipe.findOneAndUpdate({ _id: idToEditRecipe }, {
+        $set:  {
+            title: req.body.title,
+            level: req.body.level, 
+            /*ingredients,*/ 
+            cuisine: req.body.cuisine, 
+            dishType: req.body.dishType, 
+            image: req.body.image, 
+            duration: req.body.duration, 
+            creator: req.body.creator, 
+            created: req.body.created 
+        }
+    })
+    .then(() => {
+        res.redirect(`/recipes/details/?id=${idToEditRecipe}`);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+});
 
 module.exports = app;
