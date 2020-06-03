@@ -52,4 +52,4 @@ app.get("/... (req,res)=> {
 })
 ```
 
- You could for example make categories based on the level of difficulty.
+ You could make categories based on the level of difficulty or, like the example, based on the cuisine.
