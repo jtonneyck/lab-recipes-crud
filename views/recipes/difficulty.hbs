@@ -1,0 +1,30 @@
+<div class="container">
+    <form class="form" action="/recipe/difficulty">
+          <div class="row m-2">
+        <h1>Are you up for a challenge?</h1>
+      </div>
+        <div class="row m-2">
+            <input type="checkbox" name="level" value="Easy Peasy">
+            <label for="">Easy Peasy</label><br>
+            <input type="checkbox" name="level" value="Amateur Chef">
+            <label for="Amateur Chef">Amateur Chef</label><br>
+            <input type="checkbox" name="level" value="UltraPro Chef">
+            <label for="UltraPro Chef"> UltraPro Chef</label><br> 
+        </div>
+      <div class="row m-2">
+        <input type="submit"></input>
+      </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <div class="row">
+            {{#each recipes}}
+                <div class="col-4">
+                    <img src="{{image}}" alt="{{title}} img">
+                    <h5><a href="/recipe/details?id={{_id}}">{{title}}</a></h5>
+                </div>
+            {{/each}}
+    </div>
+</div>  

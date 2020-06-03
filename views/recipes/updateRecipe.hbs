@@ -1,0 +1,56 @@
+<div class="container">
+  <form action="/recipe/update" method="post">
+    <div class="row m-2">
+      <h1>Recipe to Update:</h1>
+    </div>
+    <div class="row m-2">
+      <label for="">Title: </label>
+      <input value="{{recipe.title}}" type="text" name="title">
+    </div>
+    <div class="row m-2">
+      <label for="">Level:  </label>
+      <select value="{{recipe.level}}" name="level">
+        <option value="Easy Peasy">Easy Peasy</option>
+        <option value="Amateur Chef">Amateur Chef</option>
+        <option value="UltraPro Chef">UltraPro Chef</option>
+      </select>
+    </div>
+    <div class="row m-2">
+      <label for="">Cuisine: </label>
+        <input value="{{recipe.cuisine}}" type="text" name="cuisine">
+    </div>
+    <div class="row m-2">
+      <label for="">Dishtype: </label>
+      <select value="{{recipe.dishType}}" name="dishType">
+          <option value="breakfast">Breakfast</option>
+          <option value="main_course">Main course</option>
+          <option value="soup">Soup</option>
+          <option value="snack">Snack</option>
+          <option value="drink">Drink</option>
+          <option value="dessert">Dessert</option>
+      </select> 
+    </div>
+    <div class="row m-2">
+      <label for="">Duration: </label>
+      <input value="{{recipe.duration}}" type="number" name="duration">
+    </div> 
+    <div class="row m-2">
+      <label for="">Creator: </label>
+      <input value="{{recipe.creator}}" type="text" name="creator">
+    </div> 
+    <div class="row m-2">
+      <label for="">Created: </label>
+      <input value="{{recipe.created}}" type="date" name="created">
+    </div> 
+    <div class="row m-2">
+      <label for="">Image: </label>
+      <input value="{{recipe.image}}" type="text" name="image">
+    </div> 
+      <div class="row m-2">
+          <input value="{{recipe._id}}" type="hidden" name="_id">
+    </div> 
+    <div class="row m-2">
+      <input type="submit"></input>
+    </div>
+  </form>
+</div>

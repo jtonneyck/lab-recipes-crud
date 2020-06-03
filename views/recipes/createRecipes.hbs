@@ -1,0 +1,53 @@
+<div class="container">
+  <form action="/recipe/create" method="post">
+      <div class="row m-2">
+        <h1>Recipe to add:</h1>
+      </div>
+      <div class="row m-2">
+        <label for="">Title: </label>
+        <input type="text" name="title">
+      </div>
+      <div class="row m-2">
+        <label for="">Level:  </label>
+        <select name="level">
+          <option value="Easy Peasy">Easy Peasy</option>
+          <option value="Amateur Chef">Amateur Chef</option>
+          <option value="UltraPro Chef">UltraPro Chef</option>
+        </select>
+      </div>
+      <div class="row m-2">
+        <label for="">Cuisine: </label>
+          <input type="text" name="cuisine">
+      </div>
+      <div class="row m-2">
+        <label for="">Dishtype: </label>
+        <select name="dishType">
+            <option value="breakfast">Breakfast</option>
+            <option value="main_course">Main course</option>
+            <option value="soup">Soup</option>
+            <option value="snack">Snack</option>
+            <option value="drink">Drink</option>
+            <option value="dessert">Dessert</option>
+        </select> 
+      </div>
+      <div class="row m-2">
+        <label for="">Duration: </label>
+        <input type="number" name="duration">
+      </div> 
+      <div class="row m-2">
+        <label for="">Creator: </label>
+        <input type="text" name="creator">
+      </div> 
+      <div class="row m-2">
+        <label for="">Created: </label>
+        <input type="date" name="created">
+      </div> 
+      <div class="row m-2">
+        <label for="">Image: </label>
+        <input type="text" name="image" value="https://images.media-allrecipes.com/images/75131.jpg">
+      </div> 
+      <div class="row m-2">
+        <input type="submit"></input>
+      </div>
+    </form>
+</div>
