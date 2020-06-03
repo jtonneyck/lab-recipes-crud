@@ -1,0 +1,17 @@
+<h1>Recipe page</h1>
+
+<img class="img-fluid" src="{{recipe.image}}" alt="">
+<h3>{{recipe.title}}</h3>
+<p>Level: {{recipe.level}}</p>
+<p>Cuisine: {{recipe.cuisine}}</p>
+<p>Creator: {{recipe.creator}}</p>
+<p>Duration: {{recipe.duration}}minutes</p>
+<p>Ingredients:
+    <ul>
+        {{#each recipe.ingredients}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+</p>
+<a href="/recipes/delete/{{recipe._id}}">Delete the recipe</a>
+<a href="/recipes/update/{{recipe._id}}">Update recipe</a>

@@ -1,0 +1,31 @@
+<form action="/recipes/create" method="POST">
+    <input type="text" placeholder="title" name="title"><br>
+    <input type="text" placeholder="image url" name="image"><br>
+    <label for="level">Level:</label>
+    <select name="level" id="level">
+        <option value="Easy Peasy">Easy Peasy</option>
+        <option value="Amateur Chef">Amateur Chef</option>
+        <option value="UltraPro Chef">UltraPro Chef</option>
+    </select><br>
+    <input type="text" placeholder="cuisine" name="cuisine"><br>
+    <input type="text" placeholder="creator" name="creator"><br>
+    <input type="number" placeholder="duration" name="duration" min="0"><br>
+    <label for="dishType">Dish Type:</label>
+    <select name="dishType" id="dishType">
+        <option value="breakfast">Breakfast</option>
+        <option value="main_course">Main Course</option>
+        <option value="soup">Soup</option>
+        <option value="snack">Snack</option>
+        <option value="drink">Drink</option>
+        <option value="dessert">Dessert</option>
+        <option value="other">Other</option>
+    </select><br>
+    <input type="text" placeholder="ingredient 1" name="ingredients">
+    <input type="text" placeholder="ingredient 2" name="ingredients">
+    <input type="text" placeholder="ingredient 3" name="ingredients">
+    <input type="text" placeholder="ingredient 4" name="ingredients">
+    <input type="text" placeholder="ingredient 5" name="ingredients">
+    <input type="text" placeholder="ingredient 6" name="ingredients">
+    <button>Add ingredient</button><br>
+    <button>Create Recipe</button>
+</form>
