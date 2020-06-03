@@ -12,6 +12,7 @@ const recipeSchema = new Schema({
   creator: { type: String },
   created: { type: Date, default: Date.now}
 });
+recipeSchema.index({'$**': 'text'});
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 

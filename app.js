@@ -10,6 +10,10 @@ const deleteRoute = require("./routes/delete");
 const createRoute = require("./routes/create");
 const updateRoute = require("./routes/update");
 const cuisineRoute = require("./routes/cuisine");
+const searchRoute = require("./routes/search");
+const difficultyRoute = require("./routes/difficulty");
+
+
 
 const app = express();
 
@@ -43,6 +47,9 @@ app.use("/", deleteRoute);
 app.use("/", createRoute);
 app.use("/", updateRoute);
 app.use("/", cuisineRoute);
+app.use("/", searchRoute);
+app.use("/", difficultyRoute);
+
     
 
 app.listen(3000, ()=> {

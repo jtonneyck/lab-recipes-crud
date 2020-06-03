@@ -1,0 +1,25 @@
+<div class="container">
+    <form class="form" action="/recipe/search">
+          <div class="row m-2">
+        <h1>Search for your recipe!</h1>
+      </div>
+      <div class="row m-2">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search for Cuisine" aria-label="Search" name="search">
+      </div>
+      <div class="row m-2">
+        <input type="submit"></input>
+      </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <div class="row">
+            {{#each recipes}}
+                <div class="col-4">
+                    <img src="{{image}}" alt="{{title}} img">
+                    <h5><a href="/recipe/details?id={{_id}}">{{title}}</a></h5>
+                </div>
+            {{/each}}
+    </div>
+</div>  
