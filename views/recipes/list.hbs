@@ -1,5 +1,10 @@
 <div class="container py-5">
     <div class="row row-cols-3">
+        {{#if isListEmpty}}
+        <div class="col py-2">
+            <p>No recipes found matching search term</p>
+        </div>
+        {{else}}
         {{#each allRecipesFromDB}}
         <div class="col py-2">
             <a class="recipe-card-anchor" href="/detail?id={{this._id}}">
@@ -16,5 +21,7 @@
             </a>
         </div>
         {{/each}}
+        {{/if}}
+
     </div>
 </div>

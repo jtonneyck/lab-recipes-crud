@@ -5,7 +5,6 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/create", (req, res) => {
-  debugger;
   res.render("recipes/create");
 });
 

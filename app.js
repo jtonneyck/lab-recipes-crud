@@ -45,6 +45,11 @@ app.use("/", require("./routes/create"));
 //update a recipe
 app.use("/",require("./routes/update"));
 
+//search a recipe
+app.use("/", require("./routes/search"));
+
+//search a recipe
+app.use("/", require("./routes/filter"));
 
 app.listen(3000, ()=> {
     console.log("Webserver is listening");

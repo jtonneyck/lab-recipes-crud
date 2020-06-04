@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row py-5">
+            <h1>Search by type of cuisine</h1>
+    </div>
+    <div class="row">
+        <label style="color: white">Select type of cuisine</label>
+    </div>
+
+    <div class="row">
+        <form action="/filter" method="GET">
+            <input type="checkbox"name="category" value="Italian">
+            <label style="color: white">Italian</label>
+            <input type="checkbox" name="category" value="French">
+            <label style="color: white">French</label>
+            <input type="checkbox" name="category" value="Indian">
+            <label style="color: white">Indian</label>
+            <button>View</button>
+            {{!-- <a class="btn btn-outline-secondary" href="/results">View Recipes</a> --}}
+        </form>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row row-cols-3">
+        {{#each recipes}}
+        <div class="col py-2">
+            <a class="recipe-card-anchor" href="/detail?id={{this._id}}">
+                <div class="card border-info h-100">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text text-muted">Cuisine: {{this.cuisine}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{this.creator}}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div> 
+
