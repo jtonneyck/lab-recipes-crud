@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<a href= "/create">Create</a>
+ {{#each recipe}}
+
+    <h1>{{this.title}}</h1>
+    <h2>{{this.cuisine}}</h2>
+    <a href = "/recipes/{{this.id}}" ><img src = "{{this.image}}"></a>
+    <a href = "/recdelete/{{this.id}} ">delete</a>
+    <a href = "/update/{{this.id}}">update</a>
+    
+{{/each}}
+</body>
+</html>
