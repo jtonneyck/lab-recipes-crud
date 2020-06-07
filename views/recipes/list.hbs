@@ -1,0 +1,27 @@
+<div class="container py-5">
+    <div class="row row-cols-3">
+        {{#if isListEmpty}}
+        <div class="col py-2">
+            <p>No recipes found matching search term</p>
+        </div>
+        {{else}}
+        {{#each allRecipesFromDB}}
+        <div class="col py-2">
+            <a class="recipe-card-anchor" href="/detail?id={{this._id}}">
+                <div class="card border-info h-100">
+                    <img class="card-img-top" src="{{this.image}}" alt="{{this.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text text-muted">Cuisine: {{this.cuisine}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{this.creator}}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+        {{/if}}
+
+    </div>
+</div>
