@@ -1,0 +1,18 @@
+<h2>{{recipeList.title}}</h2>
+<p>Level: {{recipeList.level}}</p>
+<p>Cuisine: {{recipeList.cuisine}}</p>
+<p>Dishtype: {{recipeList.dishType}}</p>
+<p>It takes {{recipeList.duration}} minutes to cook.</p>
+<img src="{{recipeList.image}}">
+            <ul>
+                <p>You will need: </p>
+                {{#each this.recipeList.ingredients}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+<p>Creator: {{recipeList.creator}}</p>
+<p>Recipe created: {{recipeList.created}}</p>
+<button type="button" style="border-style: ridge; border-radius: 7px; border-color: grey"><a href="/recipes/delete/{{recipeList._id}}">Delete this recipe!</button>
+<button type="button" style="border-style: ridge; border-radius: 7px; border-color: grey"><a
+        href="/recipes/update/{{recipeList._id}}">Update this recipe!</button>
+
